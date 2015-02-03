@@ -1,5 +1,7 @@
 package com.github.ethan0w.sjblog.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,10 @@ public class ArticleService {
 	
 	public Article getArticle(long id){
 		return articleDao.getArticleById(id);
+	}
+
+	public List<Article> getAllArticles() {
+		return articleDao.getAllArticles();
 	}
 	
 }

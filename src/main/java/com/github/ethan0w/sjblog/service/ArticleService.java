@@ -14,7 +14,7 @@ public class ArticleService {
 	@Autowired
 	private ArticleDao articleDao;
 	
-	public Article getArticle(long id){
+	public Article getArticle(int id){
 		return articleDao.getArticleById(id);
 	}
 

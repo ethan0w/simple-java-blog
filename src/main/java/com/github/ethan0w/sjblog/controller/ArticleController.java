@@ -22,7 +22,7 @@ public class ArticleController {
 	//@ResponseBody
 	@RequestMapping("/index")
 	public String getArticle(String id, Model model){
-		Article article = articleService.getArticle(NumberUtils.toLong(id));
+		Article article = articleService.getArticle(NumberUtils.toInt(id));
 		String title = "";
 		if(article != null){
 			title = article.getTitle();

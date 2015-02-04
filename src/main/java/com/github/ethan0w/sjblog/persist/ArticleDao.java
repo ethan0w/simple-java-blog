@@ -9,7 +9,7 @@ import com.github.ethan0w.sjblog.model.Article;
 public interface ArticleDao {
 
 	@Select("select * from Article where id=#{id}")
-	Article getArticleById(long id);
+	Article getArticleById(int id);
 
 	@Select("select * from Article")
 	List<Article> getAllArticles();

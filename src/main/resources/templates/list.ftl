@@ -12,8 +12,8 @@
 <header id="header" class="site-header" role="banner" >
 	<div class="wrap">
 		<div class="title-area">
-			<h1 class="site-title" ><a href="#" title="OMEGA" rel="home">OMEGA</a></h1>
-			<h3 class="site-description"><span>WordPress Theme Framework</span></h3>
+			<h1 class="site-title" ><a href="#" title="OMEGA" rel="home">eHuang</a></h1>
+			<h3 class="site-description"><span>学而时习之，不亦乐乎</span></h3>
 		</div>
 	</div>
 </header>

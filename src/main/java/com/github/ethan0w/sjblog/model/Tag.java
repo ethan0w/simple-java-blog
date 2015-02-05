@@ -3,7 +3,7 @@ package com.github.ethan0w.sjblog.model;
 import java.io.Serializable;
 
 /**
- * Tag model
+ * Base Tag model, parent of category
  * @author hy
  *
  */
@@ -12,6 +12,7 @@ public class Tag implements Serializable{
 	String name; //tag name
 	int userId;  //user id
 	int num;	 //article number of this tag
+	
 	
 	public String getName() {
 		return name;
@@ -31,5 +32,4 @@ public class Tag implements Serializable{
 	public void setNum(int num) {
 		this.num = num;
 	}
-	
 }

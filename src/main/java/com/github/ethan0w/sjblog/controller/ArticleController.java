@@ -34,6 +34,6 @@ public class ArticleController {
 	@ResponseBody
 	@RequestMapping("/all")
 	public List<Article>  listArticles(){
-		return articleService.getAllArticles();
+		return articleService.getArticles(0, 0, 10);
 	}
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.ethan0w.sjblog.model.Article;
 import com.github.ethan0w.sjblog.service.ArticleService;
+import com.github.ethan0w.sjblog.test.MockDataUtils;
 
 @Controller
 @RequestMapping("/article")
@@ -35,5 +36,11 @@ public class ArticleController {
 	@RequestMapping("/all")
 	public List<Article>  listArticles(){
 		return articleService.getArticles(0, 0, 10);
+	}
+	
+	@RequestMapping("/list")
+	public String listArticle(String pageNo, Model model){
+		model.addAttribute("list", MockDataUtils.getList());
+		return "list";
 	}
 }

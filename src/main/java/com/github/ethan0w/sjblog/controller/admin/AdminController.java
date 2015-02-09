@@ -56,6 +56,17 @@ public class AdminController {
 		category = StringUtils.trim(category);
 		tags = StringUtils.trim(tags);
 		
+		if(StringUtils.isBlank(title)){
+			result.put("error", "title is empty");
+			return result;
+		}
+		
+		if(StringUtils.isBlank(source) || StringUtils.isBlank(content)){
+			result.put("error", "source or content is empty");
+			return result;
+		}
+		
+		
 		Article article = null;
 		if(artId > 0){
 			article = articleService.getArticle(artId);

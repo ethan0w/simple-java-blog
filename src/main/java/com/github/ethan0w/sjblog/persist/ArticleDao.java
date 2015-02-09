@@ -27,13 +27,16 @@ public interface ArticleDao {
 	@SelectProvider(type=ArticleSelectProvider.class, method="buildArticleSelector")
 	int getArticleCount(int userId, String title, String category, String tag);
 	
+	
 	@Insert("insert into sj_blog_article (userId, title, content, summary, source, category, tags, createTime, type, state) "
 			+ "values (#{userId}, #{title}, #{content}, #{summary}, #{source}, #{category}, #{tags}, #{createTime}, #{type}, #{state} )")
 	@Options(useGeneratedKeys=true, keyProperty="id")
 	int addArticle(Article article);
 	
+	
 	@Update("update sj_blog_article set title=#{title}, content=#{content}, summary=#{summary}, source=#{source}, category=#{category}, tags=#{tags}, type=#{type}), state=#{state} where id=#{id}")
 	int updateArticle(Article article);
+	
 	
 	@Update("update sj_blog_article set state=#{state} where id=#{articleId}")
 	int updateState(int articleId, int state);

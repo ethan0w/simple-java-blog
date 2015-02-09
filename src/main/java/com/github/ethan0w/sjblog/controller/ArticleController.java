@@ -1,6 +1,7 @@
 package com.github.ethan0w.sjblog.controller;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,18 +25,18 @@ public class ArticleController {
 	@RequestMapping("/index")
 	public String getArticle(String id, Model model){
 		Article article = articleService.getArticle(NumberUtils.toInt(id));
-		String title = "";
-		if(article != null){
-			title = article.getTitle();
-		}
-		model.addAttribute("title", title);
+		model.addAttribute("article", article);
 		return "article";
 	}
 	
 	@ResponseBody
 	@RequestMapping("/all")
-	public List<Article>  listArticles(){
-		return articleService.getArticles(0, 0, 10);
+	public Map<String, Object>  listArticles(){
+		Map<String, Object> result = new HashMap<String, Object>();
+		int count = articleService.getArticleCount(0, null, null, null);
+		result.put("num", count);
+		result.put("list", articleService.getArticleList(0, null, null, null, 0, 10));
+		return result;
 	}
 	
 	@RequestMapping("/list")

@@ -15,7 +15,7 @@ public class ArticleSelectProvider {
 		
 		String where = " 1=1 ";
 		if(userId > 0){
-			where += " AND userId=#{userId}";
+			where += " AND userId=" + userId;
 		}
 		
 		if(StringUtils.isNotBlank(title)){
@@ -43,11 +43,14 @@ public class ArticleSelectProvider {
 		
 		final String selection = columns;
 		final String condition = where;
+		final String orderClause = orderBy;
 		return new SQL(){{
 			SELECT(selection);
 			FROM("sj_blog_article");
 			WHERE(condition);
-			
+			if(orderClause.contains("LIMIT")){//order by where there is a limit clause
+				ORDER_BY(orderClause);
+			}
 		}}.toString();
 	}
 }

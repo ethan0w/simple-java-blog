@@ -18,9 +18,11 @@ public class ArticleService {
 		return articleDao.getArticleById(id);
 	}
 
-	public List<Article> getArticles(int userId, int start, int limit) {
-		
-		return articleDao.getArticleList(userId, null, null, null, start, limit);
+	public List<Article> getArticleList(int userId, String title, String category, String tag,  int start, int limit) {
+		return articleDao.getArticleList(userId, title, category, tag, start, limit);
 	}
 	
+	public int getArticleCount(int userId, String title, String category, String tag){
+		return articleDao.getArticleCount(userId, title, category, tag);
+	}
 }

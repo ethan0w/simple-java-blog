@@ -21,13 +21,12 @@
 <div class="site-inner">
 	<div class="wrap">
 	<main class="content" id="content" role="main" >
-
-		<#list list as articlelist>
+		<#if article?? >
 		<article id="post-1178" class="entry post publish author-hwijaya post-1178 format-standard has-post-thumbnail category-markup post_tag-content-2 post_tag-css post_tag-formatting-2 post_tag-html post_tag-markup-2" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">	
 
 			<div class="entry-wrap">
 				<header class="entry-header">	
-					<h2 class="entry-title" >${articlelist.title}</h2>
+					<h2 class="entry-title" >${article.title}</h2>
 					<div class="entry-meta">
 						<time class="entry-time" datetime="2013-01-11T20:22:19+00:00" title="Friday, January 11, 2013, 8:22 pm">January 11, 2013</time>
 						<span class="entry-author" >by <a href="#" title="Posts by themehall" rel="author" class="url fn n" ><span>themehall</span></a></span>	
@@ -36,7 +35,7 @@
 					
 				<div class="entry-summary" >
 					<div id="lorems">
-						${articlelist.content}
+						${article.content}
 					</div>
 				</div>
 				
@@ -48,17 +47,7 @@
 				</footer>
 			</div>
 		</article>
-		</#list>
-		
-		<nav role="navigation" id="nav-below" class="navigation  paging-navigation">
-			<nav class="pagination loop-pagination">
-				<span class='page-numbers current'>1</span>
-				<a class='page-numbers'>2</a>
-				<span class="page-numbers dots">&hellip;</span>
-				<a class='page-numbers'>8</a>
-				<a class="next page-numbers">Next &raquo;</a>
-			</nav>
-		</nav>
+		</#if>
 	</main>
 
 	<aside class="sidebar sidebar-primary widget-area" role="complementary" >

@@ -34,7 +34,7 @@ public interface ArticleDao {
 	int addArticle(Article article);
 	
 	
-	@Update("update sj_blog_article set title=#{title}, content=#{content}, summary=#{summary}, source=#{source}, category=#{category}, tags=#{tags}, type=#{type}), state=#{state} where id=#{id}")
+	@Update("update sj_blog_article set title=#{title}, content=#{content}, summary=#{summary}, source=#{source}, category=#{category}, tags=#{tags}, type=#{type}, state=#{state} where id=#{id}")
 	int updateArticle(Article article);
 	
 	

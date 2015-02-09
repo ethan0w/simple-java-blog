@@ -25,4 +25,12 @@ public class ArticleService {
 	public int getArticleCount(int userId, String title, String category, String tag){
 		return articleDao.getArticleCount(userId, title, category, tag);
 	}
+
+	public int addArticle(Article article) {
+		return articleDao.addArticle(article);
+	}
+
+	public int updateArticle(Article article) {
+		return articleDao.updateArticle(article);
+	}
 }

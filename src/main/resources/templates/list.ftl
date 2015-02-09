@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>OMEGA | WordPress Theme Framework</title>
 <meta name="viewport" content="width=device-width" />
-<link rel='stylesheet' href='/style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
 </head>
 <body>
 <div class="site-container">
@@ -12,7 +12,7 @@
 <header id="header" class="site-header" role="banner" >
 	<div class="wrap">
 		<div class="title-area">
-			<h1 class="site-title" ><a href="#" title="OMEGA" rel="home">eHuang</a></h1>
+			<h1 class="site-title" ><a href="/" title="OMEGA" rel="home">eHuang</a></h1>
 			<h3 class="site-description"><span>学而时习之，不亦乐乎</span></h3>
 		</div>
 	</div>
@@ -36,7 +36,7 @@
 					
 				<div class="entry-summary" >
 					<div id="lorems">
-						${articlelist.content}
+						${articlelist.summary!}
 					</div>
 				</div>
 				
@@ -52,10 +52,10 @@
 		
 		<nav role="navigation" id="nav-below" class="navigation  paging-navigation">
 			<nav class="pagination loop-pagination">
-				<span class='page-numbers current'>1</span>
-				<a class='page-numbers'>2</a>
+				<span class="page-numbers current">1</span>
+				<a class="page-numbers">2</a>
 				<span class="page-numbers dots">&hellip;</span>
-				<a class='page-numbers'>8</a>
+				<a class="page-numbers">8</a>
 				<a class="next page-numbers">Next &raquo;</a>
 			</nav>
 		</nav>
@@ -160,6 +160,6 @@
 	</footer>
 </div>
 
-<script type='text/javascript' src='http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js'></script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>

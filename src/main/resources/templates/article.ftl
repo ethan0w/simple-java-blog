@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>OMEGA | WordPress Theme Framework</title>
 <meta name="viewport" content="width=device-width" />
-<link rel='stylesheet' href='/style.css' type='text/css' media='all' />
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
 </head>
 <body>
 <div class="site-container">
@@ -12,8 +12,8 @@
 <header id="header" class="site-header" role="banner" >
 	<div class="wrap">
 		<div class="title-area">
-			<h1 class="site-title" ><a href="#" title="OMEGA" rel="home">OMEGA</a></h1>
-			<h3 class="site-description"><span>WordPress Theme Framework</span></h3>
+			<h1 class="site-title" ><a href="/" title="OMEGA" rel="home">eHuang</a></h1>
+			<h3 class="site-description"><span>学而时习之，不亦乐乎</span></h3>
 		</div>
 	</div>
 </header>
@@ -26,22 +26,21 @@
 
 			<div class="entry-wrap">
 				<header class="entry-header">	
-					<h2 class="entry-title" >${article.title}</h2>
+					<h2 class="entry-title" >${article.title!}</h2>
 					<div class="entry-meta">
-						<time class="entry-time" datetime="2013-01-11T20:22:19+00:00" title="Friday, January 11, 2013, 8:22 pm">January 11, 2013</time>
-						<span class="entry-author" >by <a href="#" title="Posts by themehall" rel="author" class="url fn n" ><span>themehall</span></a></span>	
+						<time class="entry-time" datetime="${article.createTime}">${article.createTime!}</time>
 					</div>
 				</header>
 					
 				<div class="entry-summary" >
 					<div id="lorems">
-						${article.content}
+						${article.content!}
 					</div>
 				</div>
 				
 				<footer class="entry-footer">
 					<div class="entry-meta">
-						<span class="entry-terms category" >Posted in: Markup</span>		
+						<span class="entry-terms category" >Posted in: ${article.category!}</span>		
 						<span class="entry-terms post_tag" >Tagged: content, css, formatting</span>		
 					</div>
 				</footer>
@@ -149,6 +148,6 @@
 	</footer>
 </div>
 
-<script type='text/javascript' src='http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js'></script>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
 </html>

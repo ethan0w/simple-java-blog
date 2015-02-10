@@ -28,7 +28,7 @@
 				<header class="entry-header">	
 					<h2 class="entry-title" >${article.title!}</h2>
 					<div class="entry-meta">
-						<time class="entry-time" datetime="${article.createTime}">${article.createTime!}</time>
+						<time class="entry-time" datetime="${article.createTime?datetime}">${article.createTime?datetime}</time>
 					</div>
 				</header>
 					

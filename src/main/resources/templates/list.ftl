@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
 <meta charset="UTF-8">
-<title>OMEGA | WordPress Theme Framework</title>
+<title>eHuang's Blog</title>
 <meta name="viewport" content="width=device-width" />
 <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
 </head>
@@ -27,7 +27,7 @@
 
 			<div class="entry-wrap">
 				<header class="entry-header">	
-					<h2 class="entry-title" >${articlelist.title}</h2>
+					<h2 class="entry-title" ><a href="/article/index?id=${articlelist.id}">${articlelist.title}</a></h2>
 					<div class="entry-meta">
 						<time class="entry-time" datetime="2013-01-11T20:22:19+00:00" title="Friday, January 11, 2013, 8:22 pm">January 11, 2013</time>
 						<span class="entry-author" >by <a href="#" title="Posts by themehall" rel="author" class="url fn n" ><span>themehall</span></a></span>	
@@ -50,13 +50,42 @@
 		</article>
 		</#list>
 		
+		<!-- 翻页按钮 -->
 		<nav role="navigation" id="nav-below" class="navigation  paging-navigation">
 			<nav class="pagination loop-pagination">
-				<span class="page-numbers current">1</span>
-				<a class="page-numbers">2</a>
-				<span class="page-numbers dots">&hellip;</span>
-				<a class="page-numbers">8</a>
-				<a class="next page-numbers">Next &raquo;</a>
+				<#if pageNo == 1>
+					<span class="page-numbers current">1</span>
+				<#else>
+					<a class="prev page-numbers" href="#">&laquo; Previous</a>
+					<a class="page-numbers" href="#">1</a>
+				</#if>
+				
+				<#if (pageNo > 3)>
+					<span class="page-numbers dots">&hellip;</span>
+				</#if>
+				
+				<#if (pageNo > 2)>
+					<a class="page-numbers" href="#">${pageNo-1}</a>
+				</#if>
+				
+				<#if (pageNo > 1) && (pageNo < num)>
+					<span class="page-numbers current">${pageNo}</span>
+				</#if>
+				
+				<#if (pageNo+1 < num) >
+					<a class="page-numbers" href="#">${pageNo+1}</a>
+				</#if>
+				
+				<#if (pageNo+2 < num) >
+					<span class="page-numbers dots">&hellip;</span>
+				</#if>
+				
+				<#if pageNo == num>
+					<span class="page-numbers current">${num}</span>
+				<#else>
+					<a class="page-numbers" href="#">${num}</a>
+					<a class="next page-numbers" href="#">Next &raquo;</a>
+				</#if>
 			</nav>
 		</nav>
 	</main>

@@ -41,6 +41,16 @@ public class ArticleController {
 	
 	@RequestMapping("/list")
 	public String listArticle(String pageNo, Model model){
+		int count = articleService.getArticleCount(0, null, null, null);
+//		model.addAttribute("num", count);
+//		model.addAttribute("list", articleService.getArticleList(0, null, null, null, 0, 10));
+		//一共有多少页
+		model.addAttribute("num", new Integer(7));
+		
+		//当前页
+		model.addAttribute("pageNo", new Integer(3));
+		
+		//当前页的article集合
 		model.addAttribute("list", MockDataUtils.getList());
 		return "list";
 	}

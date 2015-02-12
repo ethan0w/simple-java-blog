@@ -81,7 +81,7 @@ $(function(){
 		}
 		$.ajax({
 			url:'/admin/update',
-			data:'title='+ title + '&content=' + $('#editor').val(),
+			data:'title='+ title + '&content=' +tinyMCE.activeEditor.getContent(),
 			dataType:'json'
 		}).success(function(ret){
 			if(ret.status == 'ok'){

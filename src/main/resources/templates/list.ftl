@@ -56,8 +56,8 @@
 				<#if pageNo == 1>
 					<span class="page-numbers current">1</span>
 				<#else>
-					<a class="prev page-numbers" href="#">&laquo; Previous</a>
-					<a class="page-numbers" href="#">1</a>
+					<a class="prev page-numbers" href="/article/list?pageNo=${pageNo-1}">&laquo; Previous</a>
+					<a class="page-numbers" href="/article/list">1</a>
 				</#if>
 				
 				<#if (pageNo > 3)>
@@ -65,7 +65,7 @@
 				</#if>
 				
 				<#if (pageNo > 2)>
-					<a class="page-numbers" href="#">${pageNo-1}</a>
+					<a class="page-numbers" href="/article/list?pageNo=${pageNo-1}">${pageNo-1}</a>
 				</#if>
 				
 				<#if (pageNo > 1) && (pageNo < num)>
@@ -73,7 +73,7 @@
 				</#if>
 				
 				<#if (pageNo+1 < num) >
-					<a class="page-numbers" href="#">${pageNo+1}</a>
+					<a class="page-numbers" href="/article/list?pageNo=${pageNo+1}">${pageNo+1}</a>
 				</#if>
 				
 				<#if (pageNo+2 < num) >
@@ -83,8 +83,8 @@
 				<#if pageNo == num>
 					<span class="page-numbers current">${num}</span>
 				<#else>
-					<a class="page-numbers" href="#">${num}</a>
-					<a class="next page-numbers" href="#">Next &raquo;</a>
+					<a class="page-numbers" href="/article/list?pageNo=${num}">${num}</a>
+					<a class="next page-numbers" href="/article/list?pageNo=${pageNo+1}">Next &raquo;</a>
 				</#if>
 			</nav>
 		</nav>

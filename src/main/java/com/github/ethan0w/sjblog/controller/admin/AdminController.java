@@ -61,7 +61,7 @@ public class AdminController {
 			return result;
 		}
 		
-		if(StringUtils.isBlank(source) || StringUtils.isBlank(content)){
+		if(StringUtils.isBlank(source) && StringUtils.isBlank(content)){
 			result.put("error", "source or content is empty");
 			return result;
 		}

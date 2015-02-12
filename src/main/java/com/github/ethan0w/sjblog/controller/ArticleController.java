@@ -10,9 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.github.ethan0w.sjblog.BlogConstants;
 import com.github.ethan0w.sjblog.model.Article;
 import com.github.ethan0w.sjblog.service.ArticleService;
-import com.github.ethan0w.sjblog.test.MockDataUtils;
 
 @Controller
 @RequestMapping("/article")
@@ -40,18 +40,21 @@ public class ArticleController {
 	}
 	
 	@RequestMapping("/list")
-	public String listArticle(String pageNo, Model model){
+	public String listArticle(Integer pageNo, Model model){
 		int count = articleService.getArticleCount(0, null, null, null);
-//		model.addAttribute("num", count);
-//		model.addAttribute("list", articleService.getArticleList(0, null, null, null, 0, 10));
-		//一共有多少页
-		model.addAttribute("num", new Integer(7));
 		
-		//当前页
-		model.addAttribute("pageNo", new Integer(3));
+		//总页数
+		model.addAttribute("num", Math.ceil(count*1.0/BlogConstants.ARTICLE_COUNT_PER_PAGE));
 		
-		//当前页的article集合
-		model.addAttribute("list", MockDataUtils.getList());
+		//当前页面：如果没有传pageNo参数，则默认第一页
+		if(pageNo == null || pageNo <=0 ){
+			pageNo = 1;
+		}
+		model.addAttribute("pageNo", pageNo);
+				
+		//当前页文章列表
+		model.addAttribute("list", articleService.getArticleList(0, null, null, null, (pageNo-1)*BlogConstants.ARTICLE_COUNT_PER_PAGE, BlogConstants.ARTICLE_COUNT_PER_PAGE));
+		
 		return "list";
 	}
 }

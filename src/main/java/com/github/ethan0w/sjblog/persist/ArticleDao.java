@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.Update;
 
+import com.github.ethan0w.sjblog.model.Archives;
 import com.github.ethan0w.sjblog.model.Article;
 
 /**
@@ -40,4 +41,7 @@ public interface ArticleDao {
 	
 	@Update("update sj_blog_article set state=#{state} where id=#{articleId}")
 	int updateState(int articleId, int state);
+	
+	@Select("select DATE_FORMAT(createTime,'%M %Y') as archiveDate, count(*) as archiveCount from sj_blog_article where userId=#{userId} group by DATE_FORMAT(createTime,'%M %Y')")
+	List<Archives> getArchives(int userId);
 }

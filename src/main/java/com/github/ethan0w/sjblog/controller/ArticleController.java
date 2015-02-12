@@ -55,6 +55,11 @@ public class ArticleController {
 		//当前页文章列表
 		model.addAttribute("list", articleService.getArticleList(0, null, null, null, (pageNo-1)*BlogConstants.ARTICLE_COUNT_PER_PAGE, BlogConstants.ARTICLE_COUNT_PER_PAGE));
 		
+		//最近五条
+		model.addAttribute("recentPosts", articleService.getArticleList(0, null, null, null, 0, BlogConstants.RECENT_POST_NUM));
+		
+		//档案
+		model.addAttribute("achives", articleService.getArchiveList(0));
 		return "list";
 	}
 }

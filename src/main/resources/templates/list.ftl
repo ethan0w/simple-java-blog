@@ -29,8 +29,7 @@
 				<header class="entry-header">	
 					<h2 class="entry-title" ><a href="/article/index?id=${articlelist.id}">${articlelist.title}</a></h2>
 					<div class="entry-meta">
-						<time class="entry-time" datetime="2013-01-11T20:22:19+00:00" title="Friday, January 11, 2013, 8:22 pm">January 11, 2013</time>
-						<span class="entry-author" >by <a href="#" title="Posts by themehall" rel="author" class="url fn n" ><span>themehall</span></a></span>	
+						<time class="entry-time">${articlelist.createTime?datetime}</time>
 					</div>
 				</header>
 					
@@ -42,8 +41,8 @@
 				
 				<footer class="entry-footer">
 					<div class="entry-meta">
-						<span class="entry-terms category" >Posted in: Markup</span>		
-						<span class="entry-terms post_tag" >Tagged: content, css, formatting</span>		
+						<span class="entry-terms category" >Posted in: ${articlelist.category!}</span>		
+						<span class="entry-terms post_tag" >Tagged: ${articlelist.tags!}</span>		
 					</div>
 				</footer>
 			</div>
@@ -152,7 +151,9 @@
 			<div class="widget-wrap">		
 				<h4 class="widget-title">Recent Posts</h4>		
 				<ul>
-					<li><a>Omega is the last Greek letter</a></li>
+					<#list recentPosts as post>
+						<li><a href="/article/index?id=${post.id}">${post.title}</a></li>
+					</#list>
 				</ul>
 			</div>
 		</section>
@@ -160,7 +161,9 @@
 		<section id="archives-2" class="widget widget-4 odd widget_archive">
 			<div class="widget-wrap"><h4 class="widget-title">Archives</h4>		
 				<ul>
-					<li><a>January 2013</a></li>
+					<#list achives as achive>
+						<li><a>${achive.archiveDate!}</a></li>
+					</#list>
 				</ul>
 			</div>
 		</section>
@@ -181,7 +184,7 @@
 	<footer id="footer" class="site-footer" role="contentinfo" >
 		<div class="wrap">
 		<div class="footer-content footer-insert">
-		<p class="copyright">Copyright &#169; 2015 OMEGA.</p>
+		<p class="copyright">Copyright &#169; 2015 eHuang.</p>
 	
 		<p class="credit">Theme by ThemeHall.</p>
 		</div>
